@@ -15,6 +15,7 @@ public class HelloController {
 		return "hello";
 	}*/
 
+
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
 	public ModelAndView loginPage() {
 
