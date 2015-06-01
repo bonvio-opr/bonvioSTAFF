@@ -15,11 +15,22 @@
   <script src="/resources/libs/angular/angular.js"></script>
   <script src="/resources/libs/angular-route/angular-route.js"></script>
   <script src="/resources/scripts/main.js"></script>
+
+  <script src="resources/scripts/controllers/LogoutController.js"></script>
+  <script src="resources/scripts/controllers/AdminController.js"></script>
+  <script src="resources/scripts/controllers/UserController.js"></script>
   <meta charset="utf-8">
-  <title>${title}</title>
+
+
+
+    <title>${title}</title>
   <base href="/">
 </head>
 <body>
+
+
+
+
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">

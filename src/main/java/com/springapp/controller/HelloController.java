@@ -19,6 +19,7 @@ public class HelloController {
 	public ModelAndView loginPage() {
 
 		ModelAndView model = new ModelAndView();
+		model.addObject("title", "Welcome");
 		model.setViewName("index");
 		return model;
 
@@ -53,5 +54,29 @@ public class HelloController {
 		return model;
 
 	}
+
+
+	@RequestMapping(value = "/denied", method = RequestMethod.GET)
+	public ModelAndView denied() {
+
+		ModelAndView model = new ModelAndView();
+		model.addObject("title", "UserPage");
+		model.setViewName("index");
+		return model;
+
+	}
+
+/*	@RequestMapping(value = "/do", method = RequestMethod.POST)
+	public ModelAndView dos() {
+
+		System.out.println("do");
+
+		ModelAndView model = new ModelAndView();
+		model.addObject("title", "UserPage");
+		model.setViewName("/denied.jsp");
+		return model;
+
+	}*/
+
 
 }
