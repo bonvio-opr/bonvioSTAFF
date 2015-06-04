@@ -1,6 +1,6 @@
-package ru.ankular.dao;
+package com.bonvio.staff.dao;
 
-import ru.ankular.models.User;
+import com.bonvio.staff.models.User;
 
 import java.util.List;
 

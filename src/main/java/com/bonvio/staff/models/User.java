@@ -1,4 +1,4 @@
-package ru.ankular.models;
+package com.bonvio.staff.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

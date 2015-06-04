@@ -1,12 +1,12 @@
-package ru.ankular.services;
+package com.bonvio.staff.services;
 
+import com.bonvio.staff.dao.UserDAO;
+import com.bonvio.staff.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import ru.ankular.dao.UserDAO;
-import ru.ankular.models.User;
 
 import java.util.List;
 

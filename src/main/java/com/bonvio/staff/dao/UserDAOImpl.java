@@ -1,7 +1,7 @@
-package ru.ankular.dao;
+package com.bonvio.staff.dao;
 
 import org.springframework.stereotype.Repository;
-import ru.ankular.models.User;
+import com.bonvio.staff.models.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

@@ -1,4 +1,4 @@
-package ru.ankular.controllers;
+package com.bonvio.staff.controllers;
 
 import org.junit.Before;
 import org.junit.Test;

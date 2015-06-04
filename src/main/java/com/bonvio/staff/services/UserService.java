@@ -1,9 +1,6 @@
-package ru.ankular.services;
+package com.bonvio.staff.services;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import ru.ankular.models.User;
+import com.bonvio.staff.models.User;
 
 import java.util.List;
 
