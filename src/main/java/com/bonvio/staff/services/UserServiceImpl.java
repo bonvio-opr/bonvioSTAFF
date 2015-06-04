@@ -20,21 +20,19 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Autowired
     UserDAO userDao;
 
-    //@Transactional
     @Override
     public List<User> getAllUsers() {
         System.out.println("получение юзеров всех");
         return userDao.getAllUsers();
     }
 
-    //@Transactional
     @Override
     public User getUserById(Integer id) {
         return null;
     }
 
     @Transactional
-    //@Override
+    @Override
     public Integer insertUser(User user) {
         System.out.println("сохранение юзера");
         userDao.insertUser(user);
@@ -42,18 +40,17 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Transactional
-    //@Override
+    @Override
     public Integer deleteUserById(Integer id) {
         return null;
     }
 
     @Transactional
-    //@Override
+    @Override
     public Integer updateUser(User user) {
         return null;
     }
 
-    //@Transactional
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         return null;
