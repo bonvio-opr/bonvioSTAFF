@@ -30,12 +30,47 @@
     </fieldset>
 </form>
 <hr>
-<ul class="list-group">
+
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Список задач</div>
+    <div class="panel-body">
+        <p>В данном разделе отображен список созданных ранее задач. Вы можете добавить новую задачу или удалить созданную ранее.</p>
+    </div>
+
+    <!-- Table -->
+    <table class="table">
+        <%--<tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>--%>
+        <tr ng-repeat="single in ticket.list">
+            <td></td>
+            <td>
+                <h4 class="list-group-item-heading">{{single.name}}</h4>
+                <p class="list-group-item-text">{{single.description}}</p>
+            </td>
+            <td>
+                <button class="btn btn-danger" ng-click="ticket.deleteTicket(single)">Удалить</button>
+            </td>
+            <td>
+                <span class="badge">{{single.dateCreate}}</span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+<%--<ul class="list-group">
     <li class="list-group-item" ng-repeat="single in ticket.list">
-        <span class="badge" ng-click="ticket.deleteTicket(single)">Удалить</span>
+        <span class="badge">{{single.dateCreate}}</span>
         <h4 class="list-group-item-heading">{{single.name}}</h4>
         <p class="list-group-item-text">{{single.description}}</p>
     </li>
-</ul>
+</ul>--%>
 </body>
 </html>

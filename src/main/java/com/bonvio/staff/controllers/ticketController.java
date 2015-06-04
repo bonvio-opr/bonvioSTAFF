@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -34,6 +36,7 @@ public class TicketController {
     @RequestMapping(value = "/insertTicket", method = RequestMethod.POST)
     @ResponseBody
     public Ticket insertTicket(@RequestBody Ticket ticket) {
+        ticket.setDateCreate(Date.from(Instant.now()));
         ticketService.insertTicket(ticket);
         return ticket;
     }
