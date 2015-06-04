@@ -30,13 +30,14 @@ public class TicketServiceImpl implements TicketService {
     @Transactional
     @Override
     public Integer insertTicket(Ticket ticket) {
+        ticketDAO.insertTicket(ticket);
         return null;
     }
 
     @Transactional
     @Override
     public Integer deleteTicketById(Integer id) {
-        return null;
+        return ticketDAO.deleteTicketById(id);
     }
 
     @Transactional
