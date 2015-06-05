@@ -1,6 +1,7 @@
 function TicketService($http) {
     this.getTickets = function () {
         return $http.get("ticket/getTickets").then(function (response) {
+            console.log(response.data.length);
             if (response.status == 200) return response.data;
         });
     };

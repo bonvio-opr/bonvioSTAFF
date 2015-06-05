@@ -30,8 +30,12 @@ public class TicketController {
 
     @RequestMapping(value = "/getTickets", method = RequestMethod.GET)
     @ResponseBody
-    public List<Ticket> getAllUsers() {
-        return ticketService.getAllTicket();
+    public List<Ticket> getAllTickets() {
+
+        List<Ticket> tickets = ticketService.getAllTicket();
+
+        System.out.println("размер" + tickets.size());
+        return tickets;
     }
 
     @RequestMapping(value = "/insertTicket", method = RequestMethod.POST)

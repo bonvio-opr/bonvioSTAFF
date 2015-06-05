@@ -21,6 +21,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     UserDAO userDao;
 
     @Override
+    @Transactional
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
@@ -52,6 +53,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+
+        if (true)
+        throw new UsernameNotFoundException("Not User");
+
         return null;
     }
 }

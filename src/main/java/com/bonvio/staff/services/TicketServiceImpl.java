@@ -18,6 +18,7 @@ public class TicketServiceImpl implements TicketService {
     TicketDAO ticketDAO;
 
     @Override
+    @Transactional
     public List<Ticket> getAllTicket() {
         return ticketDAO.getAllTickets();
     }

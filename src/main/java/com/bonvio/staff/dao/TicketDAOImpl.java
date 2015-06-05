@@ -19,7 +19,7 @@ public class TicketDAOImpl implements TicketDAO {
 
     @Override
     public List<Ticket> getAllTickets() {
-        return entityManager.createQuery("select t from Ticket t").getResultList();
+        return entityManager.createQuery("select t from Ticket t", Ticket.class).getResultList();
     }
 
     @Override
