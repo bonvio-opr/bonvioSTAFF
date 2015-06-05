@@ -1,4 +1,4 @@
-function TicketController(TicketService) {
+function TicketController(TicketService, UserService) {
     var ticket = this;
     ticket.list = [];
     ticket.single = {};
@@ -6,6 +6,8 @@ function TicketController(TicketService) {
         TicketService.getTickets().then(function (data) {
             ticket.list = data.reverse();
         });
+
+        ticket.getUsers();
     };
     ticket.insertTicket = function() {
         TicketService.insertTicket(ticket.single).then(function (data) {
@@ -19,6 +21,18 @@ function TicketController(TicketService) {
             ticket.list.splice(ticket.list.indexOf(single), 1)
         });
     };
+
+    ticket.userList = [];
+    ticket.getUsers = function () {
+        UserService.getUsers().then(function (data) {
+            ticket.userList = data;
+        });
+    };
+
+    ticket.updateTicket = function (single, status) {
+        single.status = status;
+        TicketService.updateTicket(single);
+    }
 }
 
 angular

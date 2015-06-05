@@ -22,7 +22,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public List<User> getAllUsers() {
-        System.out.println("получение юзеров всех");
         return userDao.getAllUsers();
     }
 

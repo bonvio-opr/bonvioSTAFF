@@ -5,7 +5,7 @@
     <artifactId>staff</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>ankular</name>
+    <name>staff</name>
 
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
@@ -140,7 +140,7 @@
     </dependencies>
 
     <build>
-        <finalName>ankular</finalName>
+        <finalName>staff</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>

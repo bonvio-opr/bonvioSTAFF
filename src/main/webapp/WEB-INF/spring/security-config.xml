@@ -7,14 +7,15 @@
              http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
     <http auto-config="true" use-expressions="true" access-denied-page="/403">
-        <intercept-url pattern="/" access="hasRole('ROLE_ANONYMOUS')"/>
+        <!--<intercept-url pattern="/" access="hasRole('ROLE_ANONYMOUS')"/>-->
+        <intercept-url pattern="/" access="hasRole('ROLE_USER')"/>
         <intercept-url pattern="/home" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/main" access="hasRole('ROLE_USER')"/>
 
-        <form-login login-page="/login" default-target-url="/" always-use-default-target="true"
+        <form-login login-page="/login" default-target-url="/main" always-use-default-target="true"
                     authentication-failure-url="/login"/>
 
-        <logout logout-url="/logout" logout-success-url="/" delete-cookies="true" invalidate-session="true"/>
+        <logout logout-url="/logout" logout-success-url="/ticket" delete-cookies="true" invalidate-session="true"/>
         <anonymous username="guest" granted-authority="ROLE_ANONYMOUS"/>
 
         <remember-me/>

@@ -43,6 +43,6 @@ public class TicketServiceImpl implements TicketService {
     @Transactional
     @Override
     public Integer updateTicket(Ticket ticket) {
-        return null;
+        return ticketDAO.updateTicket(ticket);
     }
 }

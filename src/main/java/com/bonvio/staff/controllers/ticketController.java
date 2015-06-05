@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 import java.util.List;
@@ -36,7 +37,12 @@ public class TicketController {
     @RequestMapping(value = "/insertTicket", method = RequestMethod.POST)
     @ResponseBody
     public Ticket insertTicket(@RequestBody Ticket ticket) {
-        ticket.setDateCreate(Date.from(Instant.now()));
+        //SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
+        //System.out.println("date: " + dateFormat.format( new Date() ) );
+        //ticket.setDateCreate(dateFormat.parse(dateFormat.format(new Date() )));
+        ticket.setDateCreate(new Date());
+        ticket.setStatus(1);
+        //ticket.setDateCreate(Date.from(Instant.now()));
         ticketService.insertTicket(ticket);
         return ticket;
     }
@@ -46,6 +52,13 @@ public class TicketController {
     public Integer deleteTicketById(@PathVariable("id") Integer id) {
         ticketService.deleteTicketById(id);
         return id;
+    }
+
+    @RequestMapping(value = "/updateTicket", method = RequestMethod.PUT)
+    @ResponseBody
+    public Ticket updateTicket(@RequestBody Ticket ticket) {
+        ticketService.updateTicket(ticket);
+        return ticket;
     }
 
 }

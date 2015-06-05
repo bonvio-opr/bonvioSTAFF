@@ -12,12 +12,20 @@ function TicketService($http) {
     };
 
     this.deleteTicketById = function (ticketId) {
-        console.log(ticketId);
         return $http.delete("ticket/deleteTicketById/" + ticketId).then(function (response) {
-            console.log(response);
             if (response.status == 200) return response.data;
         });
     };
+
+    this.updateTicket = function (ticket) {
+        console.log(ticket);
+        //ticket.developerId = ticket.developer.id;
+        //delete ticket.developer;
+        //console.log(ticket);
+        return $http.put("ticket/updateTicket", ticket).then(function (response) {
+            if (response.status == 200) return response.data;
+        });
+    }
 }
 
 angular

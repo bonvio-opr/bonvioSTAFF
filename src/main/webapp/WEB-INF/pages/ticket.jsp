@@ -4,26 +4,54 @@
 <html lang="ru" ng-app="staff">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Document alpha pre</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <script src="bower_components/angular/angular.js"></script>
     <script src="modules/main.js"></script>
     <script src="modules/ticket/TicketService.js"></script>
     <script src="modules/ticket/TicketController.js"></script>
+    <script src="modules/user/UserService.js"></script>
 </head>
+
 <body ng-controller="TicketController as ticket" ng-init="ticket.getTickets()" class="container">
-<br>
-<form>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/192.168.50.17">Внутренние сервисы компании</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <%--<li><a href="/192.168.50.17">bonvio.staff</a></li>--%>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="login">Вход</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div style="background-color: rgba(255,255,255,0.8); padding: 50px; padding-top: 100px;">
+<form >
     <fieldset>
         <div class="form-group">
             <label for="ticketName">Название</label>
-            <input type="text" id="ticketName" class="form-control" placeholder="Почистить банан"
+            <input type="text" id="ticketName" class="form-control" placeholder="Название"
                    ng-model="ticket.single.name">
         </div>
         <div class="form-group">
             <label for="ticketDescription">Описание</label>
             <textarea class="form-control" rows="3" id="ticketDescription"
-                      placeholder="Банан не чищен, срочно нужна помощь"
+                      placeholder="Описание задачи"
                       ng-model="ticket.single.description"></textarea>
         </div>
         <button type="submit" class="btn btn-primary" ng-click="ticket.insertTicket()">Добавить</button>
@@ -48,7 +76,11 @@
             <th></th>
         </tr>--%>
         <tr ng-repeat="single in ticket.list">
-            <td></td>
+            <td>
+                <i ng-if="single.status == 1" class="fa fa-caret-right "></i>
+                <i ng-if="single.status == 2" class="fa fa-cog fa-spin"></i>
+                <i ng-if="single.status == 3" class="fa fa-check-square-o"></i>
+            </td>
             <td>
                 <h4 class="list-group-item-heading">{{single.name}}</h4>
                 <p class="list-group-item-text">{{single.description}}</p>
@@ -72,5 +104,6 @@
         <p class="list-group-item-text">{{single.description}}</p>
     </li>
 </ul>--%>
+</div>
 </body>
 </html>
