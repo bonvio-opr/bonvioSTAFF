@@ -115,10 +115,6 @@
         </table>
     </div>
 
-    {{ticket.userList}}
-
-
-
     <%--<ul class="list-group">
         <li class="list-group-item" ng-repeat="single in ticket.list">
             <span class="badge">{{single.dateCreate}}</span>
