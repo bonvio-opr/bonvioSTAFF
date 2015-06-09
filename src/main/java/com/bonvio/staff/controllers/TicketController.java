@@ -18,7 +18,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("ticket")
-public class TicketControllerr {
+public class TicketController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String main() {
