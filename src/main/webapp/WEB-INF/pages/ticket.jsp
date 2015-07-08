@@ -75,18 +75,23 @@
             <th></th>
             <th></th>
         </tr>--%>
-        <tr ng-repeat="single in ticket.list">
+        <tr ng-repeat="single in ticket.list" ng-if="single.status != 4">
             <td>
                 <i ng-if="single.status == 1" class="fa fa-caret-right "></i>
                 <i ng-if="single.status == 2" class="fa fa-cog fa-spin"></i>
                 <i ng-if="single.status == 3" class="fa fa-check-square-o"></i>
+                <i ng-if="single.status == 4" class="fa fa-close"></i>
             </td>
             <td>
                 <h4 class="list-group-item-heading">{{single.name}}</h4>
                 <p class="list-group-item-text">{{single.description}}</p>
             </td>
             <td>
-                <button class="btn btn-danger" ng-click="ticket.deleteTicket(single)">Удалить</button>
+                <p>{{single.developer.login}}</p>
+            </td>
+            <td>
+                <%--<button class="btn btn-danger" ng-click="ticket.deleteTicket(single)">Удалить</button>--%>
+                <button class="btn btn-success" ng-click="ticket.updateTicket(single, 4)">Закрыть</button>
             </td>
             <td>
                 <span class="badge">{{single.dateCreate}}</span>

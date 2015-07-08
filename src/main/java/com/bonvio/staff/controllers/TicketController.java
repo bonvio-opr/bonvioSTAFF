@@ -61,6 +61,11 @@ public class TicketController {
     @RequestMapping(value = "/updateTicket", method = RequestMethod.PUT)
     @ResponseBody
     public Ticket updateTicket(@RequestBody Ticket ticket) {
+
+        if (ticket.getStatus() == 4) {
+            ticket.setDateClose(new Date());
+        }
+
         ticketService.updateTicket(ticket);
         return ticket;
     }

@@ -80,6 +80,7 @@
                     <i ng-if="single.status == 1" class="fa fa-caret-right "></i>
                     <i ng-if="single.status == 2" class="fa fa-cog fa-spin"></i>
                     <i ng-if="single.status == 3" class="fa fa-check-square-o"></i>
+                    <i ng-if="single.status == 4" class="fa fa-close"></i>
                 </td>
                 <td>
                     <h4 class="list-group-item-heading">{{single.name}}</h4>
@@ -97,7 +98,7 @@
                      <select ng-options="userSingle.login for userSingle in ticket.userList"
                              ng-model="single.developer"
                              ng-change="ticket.updateTicket(single, 2)">
-                         <option value="" disabled>Выберите пользователя</option>
+                         <option value="" disabled>Выберите пользователя123</option>
                      </select>
                      <%--<select ng-model=""
                              ng-init="single.developerId = 1">
@@ -111,17 +112,13 @@
                 <td>
                     <span class="badge">{{single.dateCreate}}</span>
                 </td>
+                <td>
+                    <span class="badge">{{single.dateClose}}</span>
+                </td>
             </tr>
         </table>
     </div>
 
-    <%--<ul class="list-group">
-        <li class="list-group-item" ng-repeat="single in ticket.list">
-            <span class="badge">{{single.dateCreate}}</span>
-            <h4 class="list-group-item-heading">{{single.name}}</h4>
-            <p class="list-group-item-text">{{single.description}}</p>
-        </li>
-    </ul>--%>
 </div>
 </body>
 </html>

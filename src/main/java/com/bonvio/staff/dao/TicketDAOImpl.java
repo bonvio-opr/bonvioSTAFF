@@ -19,7 +19,23 @@ public class TicketDAOImpl implements TicketDAO {
 
     @Override
     public List<Ticket> getAllTickets() {
-        return entityManager.createQuery("select t from Ticket t", Ticket.class).getResultList();
+
+        List<Ticket> tickets = entityManager.createQuery("select t from Ticket t", Ticket.class).getResultList();
+
+        for (int i = 0; i < tickets.size(); i++) {
+
+            try {
+                if (tickets.get(i).getDeveloper() != null)
+                    tickets.get(i).getDeveloper().getId();
+            }catch (Exception e) {
+                System.out.println("Ожидаемая ошибка при инициализации юзера");
+                e.printStackTrace();
+            }
+
+        }
+
+
+        return tickets;
     }
 
     @Override

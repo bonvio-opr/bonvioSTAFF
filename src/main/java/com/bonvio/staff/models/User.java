@@ -1,9 +1,8 @@
 package com.bonvio.staff.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by niko on 03.06.15.
@@ -26,6 +25,19 @@ public class User {
     private Integer id;
     private String login;
     private String password;
+
+    @OneToMany (mappedBy = "developer")
+    private List <Ticket> tickets = new ArrayList<Ticket>();
+
+
+    //@JsonManagedReference
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
 
     public Integer getId() {
         return id;

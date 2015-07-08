@@ -1,13 +1,11 @@
 package com.bonvio.staff.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import javax.xml.crypto.Data;
 import java.util.Date;
-
-import com.bonvio.staff.models.User;
 
 /**
  * Created by niko on 03.06.15.
@@ -27,7 +25,9 @@ public class Ticket {
     private String description;
     private Date dateCreate;
     private Date dateClose;
-    private Integer developerId;
+
+    @ManyToOne (fetch = FetchType.EAGER)
+    private User developer;
     private Integer status;
 
     public Integer getId() {
@@ -70,12 +70,14 @@ public class Ticket {
         this.dateClose = dateClose;
     }
 
-    public Integer getDeveloperId() {
-        return developerId;
+
+    //@JsonIgnore
+    public User getDeveloper() {
+        return developer;
     }
 
-    public void setDeveloperId(Integer developerId) {
-        this.developerId = developerId;
+    public void setDeveloper(User developer) {
+        this.developer = developer;
     }
 
     public Integer getStatus() {
